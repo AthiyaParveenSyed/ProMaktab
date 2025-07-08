@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beginner Level</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="shortcut icon" type="x-icon"
+	th:href="@{/images/quran_recitation.png}">
+</head>
+<body>
+	<div th:replace="header :: header"></div>
+	<div class="bgn_contents">
+		<section class="bgn_offer-section">
+			<div class="bgn_left">
+				<h1>Beginner Level</h1>
+				<p>This course is designed as the first step into Quran Learning
+					for kids and adults. After completion of this course students will
+					be able to identify and pronounce Arabic Alphabets, basic rules,
+					different symbols and connecting the letters. This course establish
+					the basic ground for understanding and reading the Quran correctly,
+					some essential duas to protect us from evil eyes and black magic
+					and so on which our prophet instructed us, also the history of all
+					prophets according to how the Quran and Hadith mentioned, the
+					pillars of islam and the faraiz and sunan.</p>
+				<a type="button" class="bgn_enroll-btn" th:href="@{/enroll?course=' + 'Beginner Level'}">Enroll Now</a>
+			</div>
+			<div class="bgn_right">
+				<div class="bgn_service">
+					<h2>Course Details</h2>
+					<ul>
+						<li>Type: Beginner</li>
+						<li>No.of Sessions: 5days/week</li>
+						<li>Each Session Duration: 30 mins</li>
+						<li>Language: Urdu, Tamil and English</li>
+						<li>Book required:Noorani Qaida, Islamic Asbaq</li>
+					</ul>
+				</div>
+				<div class="bgn_service">
+					<h2>Topics we cover</h2>
+					<ul>
+						<li>Quran grammar</li>
+						<li>basic masail</li>
+						<li>essential duas</li>
+						<li>short stories of prophets</li>
+					</ul>
+				</div>
+				<div class="bgn_service">
+					<h2>Pre requisites</h2>
+					<ul>
+						<li>Good Internet Connectivity</li>
+						<li>any smart device</li>
+						<li>Little / No Prior Knowledge</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+	</div>
+</body>
+</html>

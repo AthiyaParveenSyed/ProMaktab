@@ -1,0 +1,640 @@
+@charset "UTF-8";
+
+html {
+	background-image: url('/images/backgroundimage.jpeg');
+	background-size: cover; /* Cover the full screen */
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 100%; /* Ensures full height */
+	width: 100%; /* Ensures full width */
+}
+
+* {
+	/*background-color: #f2f2f2;*/
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Arial, sans-serif;
+}
+
+body {
+	/* background-color: rgb(255, 255, 255); Off-white */
+	font-family: Arial, sans-serif;
+	color: white;
+	font-size: 14px;
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+/* .contents{
+	background-color: #ffffff;
+} */
+.headerdiv {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 30px;
+	background-color: transparent;
+}
+
+.header-left {
+	flex: 1;
+}
+
+.header-centre {
+	flex: 2;
+	display: flex;
+	justify-content: centre;
+}
+
+.header-right {
+	flex: 1;
+	display: flex;
+	justify-content: flex-end;
+	gap: 15px;
+}
+
+.headerdiv a {
+	float: left;
+	color: white;
+	text-align: center;
+	padding: 12px;
+	text-decoration: none;
+	font-size: 18px;
+	line-height: 25px;
+	border-radius: 25px;
+	margin-right: 3px;
+}
+
+.logo {
+	flex-shrink: 0; /* Prevents resizing */
+	height: 50px; /* Adjust as needed */
+	width: auto;
+	margin-right: 20px;
+}
+
+/* .toggle-container {
+	display: flex;
+	align-items: center;
+	background-color: #a4d1ff;
+	border-radius: 25px;
+	padding: 1px;
+} */
+.toggle-container a {
+	color: white;
+	text-decoration: none;
+	margin-left: 20px;
+	font-weight: bold;
+}
+
+.welcomeuser {
+	display: flex;
+	flex-direction: column; /* Stack items vertically */
+	align-items: center; /* Center items horizontally */
+	padding: 5px 5px;
+}
+
+.welcome {
+	margin-top: 26px;
+}
+
+.logout-btn {
+	margin-top: 0px; /* Add spacing above the button */
+	font-size: 20px; /* Adjust size if necessary */
+}
+
+.toggle-btn {
+	flex: 1;
+	border: none;
+	padding: 5px 6px;
+	font-size: 14px;
+	border-radius: 25px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	background-color: transparent;
+	color: white;
+}
+
+.toggle-btn.active {
+	/* background-color: #ff884f; */
+	/* background-color:#ffcac2; */
+	/* background-color: #6cb6ff; */
+	color: white;
+	border-radius: 25px;
+	padding-right: 12px;
+}
+
+.toggle-btn:hover {
+	transform: translateY(-10px);
+	box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
+	position: relative;
+}
+
+/* .headerdiv a.logo {
+	box-sizing: border-box;
+	padding-right: 500px;
+	margin: 0 auto;
+	background-color:#b3ccff;
+} */
+.menu {
+	display: flex;
+	list-style: none;
+	gap: 40px;
+}
+
+/* Style for "Courses" */
+.menu li a {
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.dropdown, .dropdown_teachers {
+	position: relative;
+}
+/* Dropdown Menu */
+.dropdown-menu, .dropdown-menu_teachers {
+	display: none;
+	position: absolute;
+	border-radius: 8px;
+	min-width: 220px;
+	padding: 5px 10px;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+	left: 0;
+	top: 100%; /* Appears below */
+	z-index: 1000;
+	margin-top: 10px;
+	pointer-events: auto;
+}
+
+/* Show Dropdown on Hover */
+.dropdown:hover .dropdown-menu, .dropdown_teachers:hover .dropdown-menu_teachers
+	{
+	display: block;
+}
+
+.dropdown::after, .dropdown_teachers::after {
+	content: "";
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	height: 10px; /* Adjust this to match the margin */
+	background: transparent;
+	pointer-events: auto;
+}
+/* Style for Dropdown Items */
+.dropdown-menu li, .dropdown-menu_teachers li {
+	list-style: none;
+	padding: 0;
+}
+
+.dropdown-menu li a, .dropdown-menu_teachers li a {
+	text-decoration: none;
+	padding: 12px 15px;
+	color: white;
+	display: flex;
+	flex-direction: row-reverse; /* Arabic should be on the right */
+	justify-content: space-between; /* Space Arabic & English */
+	font-size: 14px;
+	font-weight: 500;
+	align-items: center;
+	transition: background 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.dropdown-menu li a:hover, .dropdown-menu_teachers li a:hover {
+	/* background: #a4d1ff;  */
+	background: #a4d1ff;
+}
+
+/* Arabic Text */
+.dropdown-menu li a .arabic {
+	font-family: 'Traditional Arabic', sans-serif;
+	font-size: 15px;
+	direction: rtl; /* Right to Left */
+	text-align: right;
+	margin-left: 8px; /* Space between Arabic and English */
+}
+
+/* English Text */
+.dropdown-menu li a .english {
+	font-family: 'Poppins', sans-serif;
+	font-size: 14px;
+	text-align: left;
+}
+
+.offer-section, .bgn_offer-section, .Intr_offer-section,
+	.prof_offer-section, .exp_offer-section, .whyus_offer-section {
+	display: flex;
+	justify-content: space-between;
+	padding: 50px;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.left, .bgn_left, .Intr_left, .prof_left, .exp_left, .whyus_left {
+	flex: 1;
+	padding-right: 200px;
+}
+/*  .whyus_left {
+	flex: 1;
+	padding-right: 100px;
+} */
+.left h1, .bgn_left h1, .Intr_left h1, .prof_left h1, .exp_left h1,
+	.whyus_left h1 {
+	font-size: 24px;
+	color: white;
+	margin-bottom: 20px;
+}
+
+.left p, .bgn_left p, .Intr_left p, .prof_left p, .exp_left p,
+	.whyus_left p {
+	font-size: 12px;
+	line-height: 1.5;
+	margin-bottom: 20px;
+	color: white;
+}
+
+.bgn_enroll-btn, .Intr_enroll-btn, .prof_enroll-btn, .exp_enroll-btn {
+	/* background-color: #6C63FF; */
+	background-color: rgb(89, 172, 255);
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 8px;
+	transition: background-color 0.3s ease;
+	text-decoration: none;
+}
+
+.bgn_enroll-btn:hover, .Intr_enroll-btn:hover, .prof_enroll-btn:hover,
+	.exp_enroll-btn:hover, .bcktohome-btn {
+	background-color: #6cb6ff !important; /* Ensure override */
+	color: white;
+	border: 2px solid #1e90ff;
+	transform: scale(1.05);
+	transition: all 0.3s ease-in-out;
+}
+
+.bcktohome-btn {
+	margin-top: 30px;
+	background-color: rgb(221, 238, 255);
+	color: white;
+	border: none;
+	padding: 0px 20px;
+	border-radius: 8px;
+	transition: background-color 0.3s ease;
+	text-decoration: none;
+}
+
+.right, .bgn_right, .Intr_right, .prof_right, .exp_right, .whyus_right {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	flex: 2;
+	text-align: center;
+}
+
+.whyus_right h1 {
+	display: flex;
+	margin-bottom: 20px;
+	font-size: 20px;
+	line-height: 20px;
+}
+
+.service {
+	/* background-color: #ffeaea; */
+	/* background-color: #a4d1ff; */
+	border-radius: 10px;
+	padding: 20px;
+	text-align: center;
+	width: 45%;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 1.8);
+	transition: transform 0.3s ease-in-out;
+	position: relative;
+}
+
+.service img {
+	width: 120px;
+	height: 120px;
+	margin-bottom: 20px;
+}
+
+.service h2, .bgn_service h2, .Intr_service h2, .prof_service h2,
+	.exp_service h2, .whyus_service h2 {
+	font-size: 18px;
+	color: white;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.expertiesheader {
+	height: 50px;
+	width: 50%;
+	padding-left: 50px;
+	padding-bottom: 50px;
+}
+
+.whyus_service h1 {
+	font-size: 24px;
+	color: white;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.service li, .bgn_service li, .Intr_service li, .prof_service li,
+	.exp_service li {
+	font-size: 15px;
+	color: white;
+	line-height: 1.5;
+}
+
+/* .navbar .menu {
+	display: flex;
+	gap: 40px;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+ */
+.bgn_service, .Intr_service, .prof_service, .exp_service, .whyus_service,
+	.whyus_service {
+	/* background-color: #ffeaea; */
+	/* background-color: #a4d1ff; */
+	border-radius: 10px;
+	padding: 20px;
+	/* text-align: center; */
+	width: 40%;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 1.8);
+	transition: transform 0.3s ease-in-out;
+}
+
+.service:hover, .bgn_service:hover, .Intr_service:hover, .prof_service:hover,
+	.exp_service:hover, .whyus_service:hover {
+	transform: translateY(-10px);
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+	position: relative;
+}
+
+.form-container {
+	background-color: #fff;
+	padding: 20px 30px;
+	border-radius: 12px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+	width: 350px;
+	text-align: center;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1000;
+}
+
+.form-container h2 {
+	margin-bottom: 15px;
+}
+
+input[type="tel"], input[type="password"], input[type="text"] {
+	width: 100%;
+	padding: 10px;
+	margin: 10px 0;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+}
+
+.signupLogin_btn {
+	width: 100%;
+	padding: 10px;
+	background-color: #00b4b4;
+	color: white;
+	border: none;
+	border-radius: 8px;
+	font-size: 16px;
+	margin-top: 10px;
+	cursor: pointer;
+}
+
+.signupLogin_btn:hover {
+	background-color: #009e9e;
+}
+
+.signup-link, .login-link {
+	margin-top: 10px;
+}
+
+.pricingheader {
+	margin: auto;
+	width: 100px;
+	padding-top: 12px;
+	padding-bottom: 12px;
+}
+
+#urdupricing, #otherpricing {
+	border-collapse: collapse;
+	margin: auto;
+	width: 60%;
+	border: 3px solid #73AD21;
+}
+
+#urdupricing th, #otherpricing th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	margin: auto;
+	color: white;
+	border: 1px solid #ddd;
+}
+
+#urdupricing td, #otherpricing td {
+	border: 1px solid #ddd;
+	padding: 8px;
+}
+
+.urduheader, .otherheader {
+	margin: auto;
+	width: 250px;
+	padding: 12px;
+}
+
+.success-container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.nav-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+
+	/* padding: 10px 40px; */
+}
+
+.navbar {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	position: relative;
+}
+
+.hamburger {
+	display: none;
+	font-size: 24px;
+	background: none;
+	border: none;
+	color: white;
+	/* margin-left: 12px; */ /* Add space between Log in and icon */
+	z-index: 9999;
+}
+
+@media only screen and (max-width: 768px) {
+	header {
+		z-index: 1000;
+		width: 100%;
+		padding-bottom: 20px;
+	}
+	* {
+		box-sizing: border-box;
+	}
+	body, html {
+		margin: 0;
+		padding: 0;
+		overflow-x: hidden; /* Prevent horizontal scroll */
+	}
+	img {
+		max-width: 100%;
+		height: auto;
+		display: block;
+	}
+	.menu {
+		display: none;
+		flex-direction: row;
+		align-items: flex-start;
+		/* background-color: rgb(128, 64, 64); */
+		position: fixed;
+		top: 60px;
+		right: 0;
+		text-align: right;
+		/* width: 100%; */ /* or 100% if you want full width */
+		z-index: 9999;
+		padding: 15px 0px;
+		gap: 20px;
+	}
+	.menu.show {
+		display: flex;
+	}
+	.navbar.active .menu {
+		display: flex;
+	}
+	/* .navbar .menu li {
+		margin: 15px 0;
+	} */
+	.header-center {
+		display: flex;
+		flex-direction: row; /* Stack elements vertically */
+		position: fixed;
+		top: 0;
+		width: 100%;
+		height: 80px; /* Adjust as needed */
+	}
+	.auth-hamburger-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		gap: 16px;
+		position: fixed;
+		top: 20px;
+		right: 15px;
+		z-index: 9999;
+	}
+	.hamburger {
+		position: relative;
+		top: 2px !important;
+		right: 5px !important;
+		z-index: 9999 !important;
+		font-size: 30px !important;
+		color: white !important;
+		background: none !important;
+		border: none !important;
+		display: block !important;
+	}
+	.fa-bars {
+		color: white !important;
+	}
+	.headerdiv {
+		position: fixed;
+		top: 0;
+		width: 100%;
+				z-index: 9998;
+		padding: 10px 20px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	body {
+		padding-top: 70px !important;
+	}
+	.welcomeuser {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	/* 🔧 Fix for cards */
+	.right, .bgn_right, .Intr_right, .prof_right, .exp_right, .whyus_right {
+		flex-direction: column;
+		align-items: center;
+	}
+	.service, .bgn_service, .Intr_service, .prof_service, .exp_service,
+		.whyus_service, .whyus_service {
+		width: 90%;
+		margin-bottom: 20px;
+		z-index: 1;
+		position: relative;
+	}
+	.service, .bgn_service, .Intr_service, .prof_service, .exp_service,
+		.whyus_service, .whyus_service img {
+		width: 100%;
+		height: auto;
+	}
+	/* Optional: Reduce font size slightly for mobile */
+	.service h2, .bgn_service h2, .Intr_service h2, .prof_service h2,
+		.exp_service h2, .whyus_service h2, .service p, .bgn_service p,
+		.Intr_service p, .prof_service p, .exp_service p, .whyus_service p {
+		font-size: 12px;
+	}
+	/* .dropdown {
+		position: relative;
+		display: inline-block;
+	} */
+	.menu .dropdown:hover .dropdown-menu {
+		display: block;
+	}
+	.dropdown-menu {
+		background-color: #000; /* Or whatever */
+		position: absolute;
+		z-index: 9999;
+	}
+
+	/* Make sure links are clickable */
+	.toggle-btn {
+		pointer-events: auto;
+		cursor: pointer;
+	}
+	.toggle-container, .welcomeuser, .logo {
+		z-index: 1001; /* Make sure it's above mobile nav */
+		position: relative;
+	}
+	.welcomeuser {
+		display: flex;
+		flex-direction: column; /* Stack items vertically */
+		align-items: center; /* Center items horizontally */
+		padding: 3px 25px;
+	}
+	.pricingheader, .urduheader, .otherheader, #urdupricing, #otherpricing,
+		#urdupricing th, #otherpricing th {
+		z-index: 1;
+		position: relative;
+	}
+}

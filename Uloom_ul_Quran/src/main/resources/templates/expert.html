@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Expert Level</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="shortcut icon" type="x-icon"
+	th:href="@{/images/quran_recitation.png}">
+</head>
+<body>
+	<div th:replace="header :: header"></div>
+	<div class="exp_contents">
+		<section class="exp_offer-section">
+			<div class="exp_left">
+				<h1>Expert Level</h1>
+				<p>This course is for those students who already completed their
+					Qaida Course (First step to the Quran) or they already have some
+					basic knowledge of Arabic. In this course the students will read
+					explanation of Quran. The students will receive extra attention
+					from our well qualified teacher to know every expects explained in
+					Quran. The explanation of the whole Quran in Urdu and english<br> Note:
+					this course specially designed for those who already complete
+					recitation of quran and adults.</p>
+				<a type="button" class="exp_enroll-btn" th:href="@{/enroll?course=' + 'Expert Level'}">Enroll Now</a>
+			</div>
+			<div class="exp_right">
+				<div class="exp_service">
+					<h2>Course Details</h2>
+					<ul>
+						<li>Type: Expert</li>
+						<li>No.of Sessions: 5days/week</li>
+						<li>Each Session Duration: 30 mins</li>
+						<li>Language: Urdu Tamil and English</li>
+						<li>Book required:Quran</li>
+					</ul>
+				</div>
+				<div class="exp_service">
+					<h2>Topics we cover</h2>
+					<ul>
+						<li>Quran grammar</li>
+						<li>basic masail</li>
+						<li>essential duas</li>
+						<li>short stories of prophets</li>
+					</ul>
+				</div>
+				<div class="exp_service">
+					<h2>Pre requisites</h2>
+					<ul>
+						<li>Good Internet Connectivity</li>
+						<li>any smart device</li>
+						<li>Little / No Prior Knowledge</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+	</div>
+</body>
+</html>

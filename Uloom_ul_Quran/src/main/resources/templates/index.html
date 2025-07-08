@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learn Quran from Anywhere</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="shortcut icon" type="x-icon"
+	th:href="@{/images/quran_recitation.png}">
+</head>
+<body>
+	<div th:replace="header :: header"></div>
+	<div class="contents">
+		<section class="offer-section">
+			<div class="left">
+				<h1>What Do We Offer</h1>
+				<p>ULOOM UL QURAAN is an online Islamic learning platform for
+					students, parents, adults, and old age people who are interested in
+					learning about Islam and its teachings. Our platform offers a wide
+					range of courses and resources to help you deepen your
+					understanding of the Quran and the teachings of Islam.</p>
+				<!-- <button type="button" class="about-btn">About Us</button> -->
+			</div>
+			<div class="right">
+				<div class="service">
+					<h2>Quran Recitation</h2>
+					<img th:src="@{/images/quran_recitation.png}"
+						alt="Quran Recitation">
+					<p>Our experienced instructors can help you improve your Quran
+						recitation skills and Tajweed, enabling you to recite the Quran
+						with proper pronunciation and rhythm.</p>
+				</div>
+				<div class="service">
+					<h2>Islamic Studies</h2>
+					<img th:src="@{/images/islamic_studies.png}" alt="Islamic Studies">
+					<p>Delve into the depths of Islamic knowledge with our
+						comprehensive Islamic studies courses, covering various aspects of
+						faith, history, and jurisprudence.</p>
+				</div>
+				<div class="service">
+					<h2>Arabic Language</h2>
+					<img th:src="@{/images/learn_arabic.jpg}" alt="Arabic Language">
+					<p>Learn the language of the Quran with our Arabic language
+						courses designed to help you understand and appreciate the beauty
+						of the Arabic script and language.</p>
+				</div>
+				<div class="service">
+					<h2>Quran Memorization</h2>
+					<img th:src="@{/images/Quran_memorization.png}"
+						alt="Quran Memorization">
+					<p>Our qualified teachers can guide you through the
+						memorization of selected Quranic verses or even the entire Quran,
+						providing support and motivation along the way.</p>
+				</div>
+			</div>
+		</section>
+	</div>
+</body>
+</html>

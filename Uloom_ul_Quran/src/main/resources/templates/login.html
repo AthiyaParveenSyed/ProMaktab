@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body style="font-family: Arial, sans-serif; height: 100vh; margin: 0;">
+	<div class="form-container">
+		<h2>Login</h2>
+		<form th:action="@{/login}" method="post">
+			<input type="tel" name="whatsappNumber" required pattern="[0-9]{10}"
+				placeholder="WhatsApp Number"> <input type="password"
+				name="password" required placeholder="Password">
+			<button type="submit" class="signupLogin_btn">Login</button>
+		</form>
+		<p class="signup-link">
+			New user? <a th:href="@{/signup}">Sign up here</a>
+		</p>
+	</div>
+</body>
+</html>
+

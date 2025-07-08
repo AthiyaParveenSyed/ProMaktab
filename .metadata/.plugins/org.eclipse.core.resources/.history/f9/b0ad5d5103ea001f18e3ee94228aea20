@@ -1,0 +1,64 @@
+package com.uuq.controller;
+
+
+
+import com.uuq.model.User;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+import jakarta.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.Map;
+
+@Controller
+public class AuthController {
+
+    private Map<String, User> users = new HashMap<>(); // Simulated database
+
+    @GetMapping("/signup")
+    public String showSignupForm() {
+        return "signup";
+    }
+
+    @PostMapping("/signup")
+    public String processSignup(@RequestParam String name, 
+                                @RequestParam String whatsappNumber, 
+                                @RequestParam String password, 
+                                Model model) {
+        if (users.containsKey(whatsappNumber)) {
+            model.addAttribute("error", "User already exists!");
+            return "signup";
+        }
+        
+        User user = new User(name, whatsappNumber, password);
+        users.put(whatsappNumber, user);
+        return "redirect:/login";  // Redirect to login after signup
+    }
+
+    @GetMapping("/login")
+    public String showLoginForm() {
+        return "login";
+    }
+
+    @PostMapping("/login")
+    public String processLogin(@RequestParam String whatsappNumber, 
+                               @RequestParam String password, 
+                               HttpSession session, 
+                               Model model) {
+        User user = users.get(whatsappNumber);
+        if (user == null || !user.getPassword().equals(password)) {
+            model.addAttribute("error", "Invalid WhatsApp number or password!");
+            return "login";
+        }
+
+        session.setAttribute("user", user); // Store user session
+        return "redirect:/";  // Redirect to home page
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate(); // Remove user session
+        return "redirect:/";
+    }
+}
+

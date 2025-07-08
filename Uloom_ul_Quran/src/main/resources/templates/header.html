@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<div th:fragment="header">
+		<header class="headerdiv">
+			<div class="header-left">
+				<a href="/"><img src="/images/companylogo.jpeg"
+					alt="PROMAKTAB Logo" class="logo"></a>
+			</div>
+			<div class="header-center">
+				<nav class="navbar" id="navMenu">
+					<ul id="nav-menu" class="menu">
+						<li class="dropdown"><a href="#">Courses ▼</a>
+							<ul class="dropdown-menu">
+								<li><a th:href="@{/Courses/beginner}"><span
+										class="arabic">درجة أولى</span> <span class="english">(Beginner
+											Level)</span></a></li>
+								<li><a th:href="@{/Courses/intermediate}"><span
+										class="arabic">درجة الثانية</span> <span class="english">(Intermediate
+											Level)</span></a></li>
+								<li><a th:href="@{/Courses/proficient}"><span
+										class="arabic">درجة الثالثة</span> <span class="english">(Proficient
+											Level)</span></a></li>
+
+								<li><a th:href="@{/Courses/expert}"><span
+										class="arabic">درجة الرابعة</span> <span class="english">(Expert
+											Level)</span></a></li>
+							</ul></li>
+						<li><a th:href="@{/pricing}">Pricing</a></li>
+						<li><a th:href="@{/whyus}">Why Us</a></li>
+						<li class="dropdown_teachers"><a href="#">Ustaaz ▼</a>
+							<ul class="dropdown-menu_teachers">
+								<li><a th:href="@{/maleteachers}">Male Teachers</a></li>
+								<li><a th:href="@{/femaleteachers}">Female Teachers</a></li>
+							</ul></li>
+					</ul>
+				</nav>
+			</div>
+			<div class="header-right">
+				<div class="auth-hamburger-wrapper">
+					<!-- If user is NOT logged in -->
+					<div class="toggle-container">
+						<div th:if="${session.user == null}">
+							<a class="toggle-btn active" th:href="@{/signup}">Sign Up</a> <a
+								class="toggle-btn" th:href="@{/login}">Log in</a>
+						</div>
+					</div>
+
+					<!-- If user is logged in -->
+					<div th:if="${session.user != null}" class="welcomeuser">
+						<span class="welcome">Welcome, <b
+							th:text="${session.user.name}"></b>!
+						</span> <a class="logout-btn" th:href="@{/logout}" title="logout"><i
+							class="fa fa-power-off" style="color: red"></i></a>
+					</div>
+					<button class="hamburger" onclick="toggleMenu(event)">
+						<i class="fa fa-bars"></i>
+					</button>
+					
+				</div>
+			</div>
+		</header>
+		<script>
+			function toggleMenu(event) {
+				const menu = document.getElementById("navMenu");
+				menu.classList.toggle("active");
+				if (event) {
+				      event.stopPropagation();
+				    }
+
+				    // Close the menu if you click outside
+				    document.addEventListener("click", function closeMenu(e) {
+				      if (!menu.contains(e.target)) {
+				    	  menu.classList.remove("active");
+				        document.removeEventListener("click", closeMenu);
+				      }
+				    });
+				  }
+		</script>
+	</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intermediate Level</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="shortcut icon" type="x-icon"
+	th:href="@{/images/quran_recitation.png}">
+</head>
+<body>
+	<div th:replace="header :: header"></div>
+	<div class="Intr_contents">
+		<section class="Intr_offer-section">
+			<div class="Intr_left">
+				<h1>Intermediate Level</h1>
+				<p>This course is for those students who already completed their
+					Qaida Course (First step to the Quran) or they already have some
+					basic knowledge of Arabic.In this course the students will add
+					beauty to their recitation of Quran.The students will receive extra
+					attention from our well qualified teacher to improve overall flow
+					of recitation. Course Outlines The recitation of the whole Quran
+					Examination on completion of every chapter Six kalmas of Islam
+					iman-e-mufsal and iman-e-mujamal daily Prayer Duas in Arabic with
+					English and Urdu translation. Memorizing short surah with tajweed
+					Biography of Mohammad s.a.w (seertun nabi)</p>
+				<a type="button" class="Intr_enroll-btn" th:href="@{/enroll?course=' + 'Intermediate Level'}">Enroll Now</a>
+			</div>
+			<div class="Intr_right">
+				<div class="Intr_service">
+					<h2>Course Details</h2>
+					<ul>
+						<li>Type: Intermediate</li>
+						<li>No.of Sessions: 5days/week</li>
+						<li>Each Session Duration: 30 mins</li>
+						<li>Language: Urdu Tamil and English</li>
+						<li>Book required:Alif Laam Meem, Seeratun Nabi(Biography of
+							Mohammed(S.A.W))</li>
+					</ul>
+				</div>
+				<div class="Intr_service">
+					<h2>Topics we cover</h2>
+					<ul>
+						<li>Recitation of the Quran</li>
+						<li>Ahadees</li>
+						<li>Memorizing short surah</li>
+						<li>Seeratun Nabi kareem in detail</li>
+					</ul>
+				</div>
+				<div class="Intr_service">
+					<h2>Pre requisites</h2>
+					<ul>
+						<li>Good Internet Connectivity</li>
+						<li>any smart device</li>
+						<li>Prior Knowledge in Topics of Beginner Level</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+	</div>
+</body>
+</html>

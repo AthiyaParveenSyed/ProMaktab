@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enrollment Successful</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+	<div class="success-container">
+		<h1 th:if="${alreadyEnrolled}">You are already enrolled in this
+			course!</h1>
+		<h1 th:unless="${alreadyEnrolled}">🎉 Enrollment Successful! our team will connect with you soon</h1>
+		<p th:text="'Course: ' + ${course}"></p>
+		<a href="/" class="bcktohome-btn">Home</a>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proficient Level</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="shortcut icon" type="x-icon"
+	th:href="@{/images/quran_recitation.png}">
+</head>
+<body>
+	<div th:replace="header :: header"></div>
+	<div class="prof_contents">
+		<section class="prof_offer-section">
+			<div class="prof_left">
+				<h1>Proficient Level</h1>
+				<p>Memorizing the Holy Quran simply means learning it by heart.
+					It is one of the miracles of Holy Quran that it is the only book in
+					the world that can be memorized word to word even by children of
+					very young age. At the time of Holy Prophet (peace be upon him),
+					writing things for the purpose of storing them was not usually
+					practiced, hence people used to memorize whatever knowledge they
+					wanted to preserve. Even today when matters of preservation are no
+					longer a difficult aspect due to advanced technology, memorizing
+					Holy Quran is still the Honor that Allah grants to whomever he
+					chooses. While it is in the hands of Allah who he chooses as the
+					safe keeper of His Holy book, we are here to provide you the
+					guidance and help you need to achieve this sacred honor, and the
+					biography of companions specially the four khalifahs (Abu Bakar
+					siddique,Umar Bin Khattab,Uasman e ghani and Ali (razialluhuanhum
+					ajmaieen)).</p>
+				<a type="button" class="prof_enroll-btn" th:href="@{/enroll?course=' + 'Proficient Level'}">Enroll Now</a>
+			</div>
+			<div class="prof_right">
+				<div class="prof_service">
+					<h2>Course Details</h2>
+					<ul>
+						<li>Type: Proficient</li>
+						<li>No.of Sessions: 5days/week</li>
+						<li>Each Session Duration: 30 mins</li>
+						<li>Language: Urdu Tamil and English</li>
+						<li>Book required:Quran</li>
+					</ul>
+				</div>
+				<div class="prof_service">
+					<h2>Topics we cover</h2>
+					<ul>
+						<li>Arabic language grammar</li>
+						<li>tafseer e Quran (short surah)</li>
+						<li>seerat e sahaba</li>
+					</ul>
+				</div>
+				<div class="prof_service">
+					<h2>Pre requisites</h2>
+					<ul>
+						<li>Good Internet Connectivity</li>
+						<li>any smart device</li>
+						<li>Prior Knowledge in Topics of Intermediate Level</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+	</div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+
+<link rel="shortcut icon" type="x-icon"
+	th:href="@{/images/quran_recitation.png}">
+</head>
+<body>
+	<div th:replace="header :: header"></div>
+	<h1 class="pricingheader">Pricing</h1>
+	<h3 class="urduheader">For Urdu speaking students</h3>
+	<table id="urdupricing">
+		<thead>
+			<tr>
+				<th>Level</th>
+				<th>Fee/Month</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Beginner Level</td>
+				<td>1500</td>
+			</tr>
+			<tr>
+				<td>Intermediate Level</td>
+				<td>1750</td>
+			</tr>
+			<tr>
+				<td>Proficient Level</td>
+				<td>2000</td>
+			</tr>
+			<tr>
+				<td>Expert Level</td>
+				<td>2500</td>
+			</tr>
+		</tbody>
+	</table>
+	<h3 class="otherheader">For other students</h3>
+	<table id="otherpricing">
+		<thead>
+			<tr>
+				<th>Level</th>
+				<th>Fee/Month</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Beginner Level</td>
+				<td>2500</td>
+			</tr>
+			<tr>
+				<td>Intermediate Level</td>
+				<td>2750</td>
+			</tr>
+			<tr>
+				<td>Proficient Level</td>
+				<td>3000</td>
+			</tr>
+			<tr>
+				<td>Expert Level</td>
+				<td>3500</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

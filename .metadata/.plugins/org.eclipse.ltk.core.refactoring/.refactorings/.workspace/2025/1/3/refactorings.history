@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;Uloom_ul_Quran&apos;" deleteContents="true" description="Delete resource &apos;Uloom_ul_Quran&apos;" element1="/Uloom_ul_Quran" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1736849048748"/>
+</session>
