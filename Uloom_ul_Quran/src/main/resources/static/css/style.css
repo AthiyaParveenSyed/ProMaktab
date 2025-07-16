@@ -9,6 +9,17 @@ html {
 	width: 100%; /* Ensures full width */
 }
 
+html::before {
+	content: "";
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: rgba(0, 0, 0, 0.3); /* subtle darkening */
+	z-index: -1;
+}
+
 * {
 	/*background-color: #f2f2f2;*/
 	margin: 0;
@@ -35,17 +46,17 @@ body {
 	justify-content: space-between;
 	align-items: center;
 	padding: 10px 30px;
-	background-color: transparent;
+	background-color: transparent; /* Semi-transparent black */
 }
 
 .header-left {
 	flex: 1;
 }
 
-.header-centre {
+.header-center {
 	flex: 2;
 	display: flex;
-	justify-content: centre;
+	justify-content: center;
 }
 
 .header-right {
@@ -430,6 +441,10 @@ input[type="tel"], input[type="password"], input[type="text"] {
 	padding-bottom: 12px;
 }
 
+thead {
+	background-color: black;
+}
+
 #urdupricing, #otherpricing {
 	border-collapse: collapse;
 	margin: auto;
@@ -489,7 +504,23 @@ input[type="tel"], input[type="password"], input[type="text"] {
 	z-index: 9999;
 }
 
-@media only screen and (max-width: 768px) {
+.auth-header {
+	display: flex;
+}
+
+.side-drawer, .drawer-menu li:nth-last-child(-n+3) {
+	display: none; /* Hide auth links in drawer on desktop */
+}
+
+.mobile-only {
+	display: none;
+}
+
+.desktop-only {
+	display: block;
+}
+
+@media ( max-width : 768px) {
 	header {
 		z-index: 1000;
 		width: 100%;
@@ -522,8 +553,17 @@ input[type="tel"], input[type="password"], input[type="text"] {
 		padding: 15px 0px;
 		gap: 20px;
 	}
-	.menu.show {
+	.menu.active {
 		display: flex;
+		flex-direction: column;
+		position: absolute;
+		top: 60px;
+		right: 0;
+		width: 100%;
+		background-color: rgba(0, 0, 0, 0.9);
+		padding: 15px 10px;
+		gap: 20px;
+		z-index: 1000;
 	}
 	.navbar.active .menu {
 		display: flex;
@@ -542,23 +582,32 @@ input[type="tel"], input[type="password"], input[type="text"] {
 	.auth-hamburger-wrapper {
 		display: flex;
 		align-items: center;
-		justify-content: flex-end;
-		gap: 16px;
+		justify-content: space-between;
+		width: 100%;
+		padding: 0 15px;
 		position: fixed;
-		top: 20px;
-		right: 15px;
+		top: 0; /* change from 10px */
+		left: 0;
+		right: 0;
+		height: 60px; /* add this */
+		background-color: rgba(0, 0, 0, 0.9); /* Add background for clarity */
 		z-index: 9999;
 	}
+	.auth-hamburger-wrapper .logo {
+		height: 45px;
+		width: auto;
+		margin-right: auto;
+	}
 	.hamburger {
-		position: relative;
-		top: 2px !important;
-		right: 5px !important;
-		z-index: 9999 !important;
-		font-size: 30px !important;
-		color: white !important;
-		background: none !important;
-		border: none !important;
-		display: block !important;
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		font-size: 28px;
+		background: none;
+		border: none;
+		color: white;
+		z-index: 10001;
+		display: block;
 	}
 	.fa-bars {
 		color: white !important;
@@ -567,14 +616,19 @@ input[type="tel"], input[type="password"], input[type="text"] {
 		position: fixed;
 		top: 0;
 		width: 100%;
-				z-index: 9998;
+		z-index: 9998;
 		padding: 10px 20px;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		background-color: transparent;
+	}
+	.headerdiv a:hover {
+		background-color: rgba(255, 255, 255, 0.2);
+		transition: 0.3s ease;
 	}
 	body {
-		padding-top: 70px !important;
+		padding-top: 80px !important;
 	}
 	.welcomeuser {
 		flex-direction: column;
@@ -583,22 +637,38 @@ input[type="tel"], input[type="password"], input[type="text"] {
 
 	/* 🔧 Fix for cards */
 	.right, .bgn_right, .Intr_right, .prof_right, .exp_right, .whyus_right {
-		flex-direction: column;
+		display: flex;
+		/* 	flex-direction: column;
+ */
 		align-items: center;
-	}
-	.service, .bgn_service, .Intr_service, .prof_service, .exp_service,
-		.whyus_service, .whyus_service {
-		width: 90%;
-		margin-bottom: 20px;
-		z-index: 1;
-		position: relative;
-	}
-	.service, .bgn_service, .Intr_service, .prof_service, .exp_service,
-		.whyus_service, .whyus_service img {
+		justify-content: center;
+		padding: 0 16px;
+		margin: 0 auto;
 		width: 100%;
-		height: auto;
+		box-sizing: border-box;
 	}
-	/* Optional: Reduce font size slightly for mobile */
+	.service, .bgn_service, .Intr_service, .prof_service, .exp_service,
+		.whyus_service {
+		width: 90%;
+		margin: 10px auto;
+		max-width: 500px;
+		padding: 20px;
+		box-sizing: border-box;
+		text-align: center;
+		border-radius: 10px;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+		background-color: rgba(255, 255, 255, 0.05);
+	}
+	.service img {
+		width: 100px;
+		height: auto;
+		margin: 0 auto 15px auto;
+		display: block;
+	}
+	.service h2, .service p {
+		font-size: 14px;
+		color: white;
+	} /* Optional: Reduce font size slightly for mobile */
 	.service h2, .bgn_service h2, .Intr_service h2, .prof_service h2,
 		.exp_service h2, .whyus_service h2, .service p, .bgn_service p,
 		.Intr_service p, .prof_service p, .exp_service p, .whyus_service p {
@@ -608,13 +678,22 @@ input[type="tel"], input[type="password"], input[type="text"] {
 		position: relative;
 		display: inline-block;
 	} */
-	.menu .dropdown:hover .dropdown-menu {
+	.dropdown:hover .dropdown-menu, .dropdown_teachers:hover .dropdown-menu_teachers
+		{
 		display: block;
+		position: relative;
+		background-color: rgba(255, 255, 255, 0.05);
 	}
-	.dropdown-menu {
-		background-color: #000; /* Or whatever */
-		position: absolute;
-		z-index: 9999;
+	.dropdown-menu, .dropdown-menu_teachers {
+		position: relative;
+		box-shadow: none;
+		margin-top: 0;
+		padding-left: 15px;
+		padding-top: 10px;
+	}
+	.dropdown-menu li a, .dropdown-menu_teachers li a {
+		flex-direction: row; /* Stack properly in mobile */
+		justify-content: flex-start;
 	}
 
 	/* Make sure links are clickable */
@@ -636,5 +715,94 @@ input[type="tel"], input[type="password"], input[type="text"] {
 		#urdupricing th, #otherpricing th {
 		z-index: 1;
 		position: relative;
+	}
+	/* ======= SIDE DRAWER MENU (Mobile) ======= */
+	.side-drawer {
+		display: block;
+		position: fixed;
+		top: 0;
+		right: -250px;
+		width: 250px;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.95);
+		color: white;
+		box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+		padding-top: 80px;
+		transition: right 0.3s ease-in-out;
+		z-index: 10000;
+	}
+	.side-drawer.open {
+		right: 0;
+	}
+	.drawer-overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.5);
+		display: none;
+		z-index: 9999;
+	}
+	.drawer-overlay.show {
+		display: block;
+	}
+	.drawer-menu {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+	}
+	.drawer-menu li {
+		border-bottom: 1px solid #444;
+	}
+	.drawer-menu li a {
+		display: block;
+		padding: 15px 20px;
+		color: white;
+		text-decoration: none;
+		transition: background 0.3s;
+	}
+	.drawer-menu li a:hover {
+		background-color: #1e90ff;
+	}
+	.auth-header {
+		display: none; /* Hide header auth buttons on mobile */
+	}
+	.side-drawer .drawer-menu li:nth-last-child(-n+3) {
+		display: block;
+		/* Show last 3 items: SignUp, Login, Logout on mobile */
+	}
+	.side-drawer {
+		transition: right 0.4s ease-in-out;
+	}
+	.bgn_enroll-btn, .Intr_enroll-btn, .prof_enroll-btn, .exp_enroll-btn {
+		margin: 20px auto 0 auto;
+		display: block;
+		width: fit-content;
+		font-size: 14px;
+		padding: 8px 16px;
+		z-index: 1;
+		position: relative;
+		padding: 8px 16px;
+	}
+	.mobile-only {
+		display: block;
+	}
+	.desktop-only {
+		display: none;
+	}
+	.offer-section, .bgn_offer-section, .Intr_offer-section,
+		.prof_offer-section, .exp_offer-section, .whyus_offer-section {
+		flex-direction: column !important;
+		align-items: center;
+		justify-content: center;
+		padding: 20px;
+		gap: 20px;
+	}
+	.left, .bgn_left, .Intr_left, .prof_left, .exp_left, .whyus_left {
+		padding-right: 0 !important;
+		text-align: center;
 	}
 }

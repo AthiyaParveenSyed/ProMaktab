@@ -3,80 +3,108 @@
 <body>
 	<div th:fragment="header">
 		<header class="headerdiv">
-			<div class="header-left">
+			<div class="header-left desktop-only">
 				<a href="/"><img src="/images/companylogo.jpeg"
 					alt="PROMAKTAB Logo" class="logo"></a>
 			</div>
+
 			<div class="header-center">
 				<nav class="navbar" id="navMenu">
 					<ul id="nav-menu" class="menu">
 						<li class="dropdown"><a href="#">Courses ▼</a>
 							<ul class="dropdown-menu">
 								<li><a th:href="@{/Courses/beginner}"><span
-										class="arabic">درجة أولى</span> <span class="english">(Beginner
+										class="arabic">درجة أولى</span><span class="english">(Beginner
 											Level)</span></a></li>
 								<li><a th:href="@{/Courses/intermediate}"><span
-										class="arabic">درجة الثانية</span> <span class="english">(Intermediate
+										class="arabic">درجة الثانية</span><span class="english">(Intermediate
 											Level)</span></a></li>
 								<li><a th:href="@{/Courses/proficient}"><span
-										class="arabic">درجة الثالثة</span> <span class="english">(Proficient
+										class="arabic">درجة الثالثة</span><span class="english">(Proficient
 											Level)</span></a></li>
-
 								<li><a th:href="@{/Courses/expert}"><span
-										class="arabic">درجة الرابعة</span> <span class="english">(Expert
+										class="arabic">درجة الرابعة</span><span class="english">(Expert
 											Level)</span></a></li>
 							</ul></li>
 						<li><a th:href="@{/pricing}">Pricing</a></li>
 						<li><a th:href="@{/whyus}">Why Us</a></li>
-						<li class="dropdown_teachers"><a href="#">Ustaaz ▼</a>
+					<!-- 	<li class="dropdown_teachers"><a href="#">Ustaaz ▼</a>
 							<ul class="dropdown-menu_teachers">
 								<li><a th:href="@{/maleteachers}">Male Teachers</a></li>
 								<li><a th:href="@{/femaleteachers}">Female Teachers</a></li>
-							</ul></li>
+							</ul></li> -->
 					</ul>
 				</nav>
 			</div>
+
 			<div class="header-right">
 				<div class="auth-hamburger-wrapper">
+					<a href="/" class="mobile-only"><img
+						src="/images/companylogo.jpeg" alt="PROMAKTAB Logo" class="logo"
+						style="height: 45px;"></a>
 					<!-- If user is NOT logged in -->
-					<div class="toggle-container">
-						<div th:if="${session.user == null}">
+					<div class="auth-header">
+						<!-- If user is NOT logged in -->
+						<div class="toggle-container" th:if="${session.user == null}">
 							<a class="toggle-btn active" th:href="@{/signup}">Sign Up</a> <a
 								class="toggle-btn" th:href="@{/login}">Log in</a>
 						</div>
+
+						<!-- If user is logged in -->
+						<div th:if="${session.user != null}" class="welcomeuser">
+							<span class="welcome">Welcome, <b
+								th:text="${session.user.name}"></b>!
+							</span> <a class="logout-btn" th:href="@{/logout}" title="logout"> <i
+								class="fa fa-power-off" style="color: red"></i>
+							</a>
+						</div>
 					</div>
 
-					<!-- If user is logged in -->
-					<div th:if="${session.user != null}" class="welcomeuser">
-						<span class="welcome">Welcome, <b
-							th:text="${session.user.name}"></b>!
-						</span> <a class="logout-btn" th:href="@{/logout}" title="logout"><i
-							class="fa fa-power-off" style="color: red"></i></a>
-					</div>
-					<button class="hamburger" onclick="toggleMenu(event)">
+					<!-- Hamburger -->
+					<button class="hamburger" onclick="toggleDrawer(event)">
 						<i class="fa fa-bars"></i>
 					</button>
-					
 				</div>
 			</div>
 		</header>
-		<script>
-			function toggleMenu(event) {
-				const menu = document.getElementById("navMenu");
-				menu.classList.toggle("active");
-				if (event) {
-				      event.stopPropagation();
-				    }
 
-				    // Close the menu if you click outside
-				    document.addEventListener("click", function closeMenu(e) {
-				      if (!menu.contains(e.target)) {
-				    	  menu.classList.remove("active");
-				        document.removeEventListener("click", closeMenu);
-				      }
-				    });
-				  }
+		<!-- Sliding Drawer Menu (Mobile Only) -->
+		<div class="side-drawer" id="sideDrawer">
+			<ul class="drawer-menu">
+				<li><a th:href="@{/Courses/beginner}">Beginner Level</a></li>
+				<li><a th:href="@{/Courses/intermediate}">Intermediate
+						Level</a></li>
+				<li><a th:href="@{/Courses/proficient}">Proficient Level</a></li>
+				<li><a th:href="@{/Courses/expert}">Expert Level</a></li>
+				<li><a th:href="@{/pricing}">Pricing</a></li>
+				<li><a th:href="@{/whyus}">Why Us</a></li>
+<!-- 				<li><a th:href="@{/maleteachers}">Male Teachers</a></li>
+				<li><a th:href="@{/femaleteachers}">Female Teachers</a></li>
+ -->				<li th:if="${session.user == null}"><a th:href="@{/signup}">Sign
+						Up</a></li>
+				<li th:if="${session.user == null}"><a th:href="@{/login}">Login</a></li>
+				<li th:if="${session.user != null}"><a th:href="@{/logout}">Logout</a></li>
+			</ul>
+		</div>
+
+		<!-- Overlay (to close drawer when clicking outside) -->
+		<div id="drawerOverlay" class="drawer-overlay" onclick="closeDrawer()"></div>
+
+		<script>
+			function toggleDrawer(event) {
+				event.stopPropagation();
+				document.getElementById("sideDrawer").classList.toggle("open");
+				document.getElementById("drawerOverlay").classList
+						.toggle("show");
+			}
+
+			function closeDrawer() {
+				document.getElementById("sideDrawer").classList.remove("open");
+				document.getElementById("drawerOverlay").classList
+						.remove("show");
+			}
 		</script>
 	</div>
+
 </body>
 </html>
